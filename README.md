@@ -77,7 +77,7 @@ Bu proje, **ESP32-S3** kullanan Türkçe konuşan akıllı bir ev sesli asistan�
 ### 1- Sunucu (Bilgisayar) Kurulumu
 Öncelikle asistanın beyin takımını oluşturan Python sunucusunu çalıştırmalısınız.
 1. Bilgisayarınızda Python yüklü olduğundan emin olun.
-2. Gerekli kütüphaneleri yükleyin: `pip install flask httpx edge-tts miniaudio`
+2. Gerekli kütüphaneleri yükleyin: `pip install flask httpx edge-tts miniaudio python-dotenv`
 3. Bir `.env` dosyası oluşturun (veya ortam değişkeni olarak ekleyin) ve Groq API anahtarınızı girin: `GROQ_API_KEY=gsk_sizin_anahtariniz...`
 4. Sunucuyu başlatmak için proje dizinindeki **`sunucu_baslat.bat`** dosyasına çift tıklayın veya `python server.py` çalıştırın.
 5. Konsolda `Sunucu: http://192.168.1.XXX:5000` benzeri bir çıktı göreceksiniz. Bilgisayarınızın bu yerel ağ IP'sini kopyalayın.

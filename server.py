@@ -16,6 +16,8 @@ from flask import Flask, request, jsonify, Response
 
 app = Flask(__name__)
 app.json.ensure_ascii = False
+from dotenv import load_dotenv
+load_dotenv()  # Proje klasöründeki .env dosyasını okur
 
 # ---- AYARLAR ----
 import os
