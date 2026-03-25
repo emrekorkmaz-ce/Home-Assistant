@@ -1,0 +1,65 @@
+================================================================================
+  JARVIS - SIFIRDAN CALISTIRMA (Windows)
+================================================================================
+
+A) ONCE SUNUCU (BILGISAYAR)
+----------------------------
+1) Proje klasorune git:
+   C:\Users\emre2\Desktop\Home Assistan1
+
+2) Sunucuyu baslat (en kolay):
+   sunucu_baslat.bat  dosyasina cift tikla.
+
+   NOT: Bat dosyasi su Python'u kullanir:
+   C:\Users\emre2\scoop\apps\python313\current\python.exe
+   Python yolu degistiyse bat icindeki satiri duzenle.
+
+3) Acilan pencerede su satiri gor:
+   Sunucu: http://XXX.XXX.XXX.XXX:5000
+   Bu XXX = bilgisayarinin yerel IP'si (Wi-Fi).
+
+4) Gerekli kutuphaneler yoksa (bir kez), ESP-IDF Python'i veya Scoop Python ile:
+   python -m pip install flask httpx edge-tts miniaudio
+
+5) Windows Guvenlik Duvari sorarsa "Erisime izin ver" de (ozellikle 5000 portu).
+
+
+B) ESP32: DERLE, FLASH, MONITOR
+--------------------------------
+ESP-IDF'nin PATH'li oldugu terminal kullan:
+  - Baslat menusu: "ESP-IDF PowerShell" veya "ESP-IDF CMD"
+  VEYA
+  - VS Code / Cursor'da ESP-IDF uzantisi: "ESP-IDF: Open ESP-IDF Terminal"
+
+Komutlar (proje klasorunde):
+
+  cd "C:\Users\emre2\Desktop\Home Assistan1"
+
+  idf.py set-target esp32s3
+
+  idf.py build
+
+  idf.py -p COM6 flash monitor
+
+  COM port farkliysa: Aygit Yoneticisi -> Portlar (COM & LPT) -> ESP32'nin COM'u
+  Ornek: COM3 ise  idf.py -p COM3 flash monitor
+
+Monitor'den cikis:  Ctrl+]
+
+
+C) SIRA ONEMLI
+--------------
+1) Once sunucu ayakta olsun (A).
+2) Sonra ESP32'yi flashla; Wi-Fi baglansin.
+3) main\main.c icinde STT_URL / TTS_URL bilgisayar IP'si ile ayni olmali:
+   Ornek: http://192.168.1.100:5000/stt
+   IP degistiyse (modem restart vb.) hem sunucu loguna hem main.c'ye bak.
+
+
+D) SIK SORUNLAR
+---------------
+- "Could not open COMx": Baska monitor/flash programini kapat; USB'yi cikar tak.
+- Sunucu acilmiyor: Baska program 5000 portunu kullaniyor olabilir.
+- Ses gidiyor cevap yok: PC firewall, yanlis IP (main.c), sunucu kapali.
+
+================================================================================

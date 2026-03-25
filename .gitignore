@@ -1,0 +1,12 @@
+build/
+managed_components/
+sdkconfig
+sdkconfig.old
+__pycache__/
+*.pyc
+.clangd
+
+# Security and local config
+.env
+*.env
+*error*.txt

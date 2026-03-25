@@ -1,0 +1,15 @@
+menu "JARVIS Sesli Asistan"
+
+config JARVIS_WIFI_SSID
+    string "Wi-Fi SSID"
+    default "WIFI_SSID"
+
+config JARVIS_WIFI_PASS
+    string "Wi-Fi sifre"
+    default "WIFI_PASS"
+
+config JARVIS_SERVER_IP
+    string "Sunucu IP adresi"
+    default "192.168.1.10"
+
+endmenu
